@@ -21,14 +21,21 @@ const add = (x: number, y: number) => {
 };
 
 add(2, 3); // output: 5
-
 // Doing this ensures that we pass in the correct parameters to out functions
+
+// * ---
+
+// * ---
 
 // * --- Union type
 let something: string | number;
 something = 1;
 something = 'hello';
 // we can tell ts hey this variable will be a string or number
+
+// * ---
+
+// * ---
 
 // * --- ARRAY
 // when we create arrays and assign a value to them typescript infers the type
@@ -58,3 +65,60 @@ let numbers: [number, number];
 numbers = [1, 3];
 // numbers = [1, 3, 4]; This will give an error
 // Play around with this and maybe tou want the first value to be nums and the second to be a boolean try that shit out
+
+// * ---
+
+// * ---
+
+// * --- Objects
+// So when dealing with object asigning types looks a lil crazy but its okay
+
+// const user: {} we gave it a type of object we havent asigned properties yet
+const user: {
+  name: string;
+  age: number;
+  hobbies: (string | number)[];
+  status: {
+    hasGirlfriend: boolean;
+    id: number;
+  };
+} = {
+  name: 'Xanity',
+  age: 24,
+  hobbies: ['Coding', 'Gym', 4],
+  status: {
+    hasGirlfriend: !true,
+    id: 4,
+  },
+};
+
+console.log(user.status.hasGirlfriend); // :')
+
+// Told you it looks crazy but if you notice all were doing is declaring all the properties and their data type that were going to use
+// * Type your own object and add some other properties and maybe throw a tuple in there
+
+// Also
+let somethingElse: {} = '';
+// All this means is that we expect any value thats not undefined or null
+somethingElse = '';
+somethingElse = 4;
+somethingElse = {};
+somethingElse = '243243';
+
+// This syntax is not related to object types
+
+// HOW TO DECLARE A OBJECT WHEN YOU DONT KNOW WHAT KEYS AND VALUES THEY WILL HAVE
+
+let data: Record<string, number | string>; // Record is a generic type
+
+// *** This is saying hey this is a object with strings as keys and the values can be of type number or strings
+data = {
+  ligma: 'insert joke here',
+  favNumber: 4,
+};
+
+// * ---
+
+// * ---
+
+// * --- ENUMS
