@@ -30,4 +30,31 @@ something = 1;
 something = 'hello';
 // we can tell ts hey this variable will be a string or number
 
-// * ARRAY
+// * --- ARRAY
+// when we create arrays and assign a value to them typescript infers the type
+// Example
+const hobbies = ['Coding', 'Gym', 'Jiu-Jitsu'];
+console.log(hobbies);
+// this is an array of strings if we tried to push a number or a boolean
+// console logging to avoid ts used variable error LMAO
+
+// we will get an error because its basically saying
+let typedHobbies: string[];
+typedHobbies = ['Coding', 'Gym', 'Jiu-Jitsu'];
+// This is the same when we gave our variables a type
+
+// We can also do this
+let things: (string | number)[]; // were using union type here
+things = ['random', 43];
+
+// * --- WE CAN ALSO DO THIS ( GENERIC TYPES ) Later we'll dive deaper ;) LMAO ill stop now
+// This is what it looks like
+let users: Array<string | number>;
+users = ['name', 4];
+
+// * --- Tuples ARRAY of Fixed length
+// we can tell ts yo can you hook me up with an array that has 2 nums in it
+let numbers: [number, number];
+numbers = [1, 3];
+// numbers = [1, 3, 4]; This will give an error
+// Play around with this and maybe tou want the first value to be nums and the second to be a boolean try that shit out
