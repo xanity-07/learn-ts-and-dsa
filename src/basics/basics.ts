@@ -10,7 +10,7 @@ username = 'xanity';
 
 let favNumber = 4;
 
-// id we try to asign a string or anyother data type we will get an error
+// if we try to asign a string or any other data type we will get an error
 console.log(typeof favNumber); // number
 
 // * --- WHERE ESLE CAN WE ASIGN TYPES ****
@@ -28,6 +28,7 @@ add(2, 3); // output: 5
 // * ---
 
 // * --- Union type
+
 let something: string | number;
 something = 1;
 something = 'hello';
@@ -38,20 +39,22 @@ something = 'hello';
 // * ---
 
 // * --- ARRAY
+
 // when we create arrays and assign a value to them typescript infers the type
 // Example
 const hobbies = ['Coding', 'Gym', 'Jiu-Jitsu'];
 console.log(hobbies);
-// this is an array of strings if we tried to push a number or a boolean
-// console logging to avoid ts used variable error LMAO
+// this is an array of strings if we tried to push a number or a boolean it will get sad and give us an error
+// console logging to avoid ts un used variable error it will cry LOL
 
-// we will get an error because its basically saying
+// We can manually asign it too
 let typedHobbies: string[];
 typedHobbies = ['Coding', 'Gym', 'Jiu-Jitsu'];
 // This is the same when we gave our variables a type
 
 // We can also do this
 let things: (string | number)[]; // were using union type here
+// Make suure to wrap union types in ()
 things = ['random', 43];
 
 // * --- WE CAN ALSO DO THIS ( GENERIC TYPES ) Later we'll dive deaper ;) LMAO ill stop now
@@ -71,6 +74,7 @@ numbers = [1, 3];
 // * ---
 
 // * --- Objects
+
 // So when dealing with object asigning types looks a lil crazy but its okay
 
 // const user: {} we gave it a type of object we havent asigned properties yet
