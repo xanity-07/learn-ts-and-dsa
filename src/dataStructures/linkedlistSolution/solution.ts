@@ -31,4 +31,47 @@ export class LinkedList {
     this.length++;
     return this;
   }
+
+  pop() {
+    if (this.head === null) return undefined;
+
+    let temp = this.head;
+    let pre = this.head;
+
+    while (temp.next !== null) {
+      pre = temp;
+      temp = temp.next;
+    }
+    this.tail = pre;
+    this.tail!.next = null;
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    this.length--;
+    return temp;
+  }
+
+  search(value: number) {
+    if (this.head === null) return false;
+    if (this.head.value === value) return true;
+    if (this.tail?.value === value) return true;
+    let temp = this.head;
+    while (temp !== null && temp.next !== null) {
+      temp = temp.next;
+      if (temp.value === value) return true;
+    }
+    return false;
+  }
 }
+
+/**
+ temp = 2 is temp 8 no 
+ temp.next = 4 is temp 8 no
+ temp.next = 6 is temp 8 no 
+
+ temp = 8 temp is not null but temp.next is so we exit the loop 
+ but we need the value its correct 
+ */
