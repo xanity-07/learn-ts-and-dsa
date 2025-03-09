@@ -126,3 +126,110 @@ data = {
 // * ---
 
 // * --- ENUMS
+// This is a list of allowed values basically
+enum Role {
+  Admin,
+  User,
+  Guest,
+}
+// they are in 0, 1, 2 format so if we said userRoles: Role = 0 // Admin
+// We can change this to strings but then change all of them to string
+let userRole: Role = Role.Admin;
+userRole = Role.Guest;
+
+// * Popular alternative to enums LITERAL TYPES
+
+let userRole2: 'admin' = 'admin';
+console.log(userRole2);
+// This is basically saying yo your time is 'admin' like actually lol
+// id i said userRole2 = 'guest' i would get an errror
+// type 'guest' is not assignable to type 'admin'
+// now think about this and use the union type on it so
+let userRole3: 'admin' | 'guest' | 'user' = 'guest';
+console.log(userRole3);
+
+// WE CAN DO THIS WITH TUPLES SO
+let posResults: [1 | -1, number];
+posResults = [-1, 5];
+
+// * --- Type alias and Custom types
+// we can do the same using the type keyword in ts
+type Roles = 'admin' | 'guest' | 'defaultUser' | 'proUser';
+
+// we can also nest types
+type User = {
+  username: 'string';
+  role: Roles;
+  online: boolean;
+  password: string;
+  permisions: string[];
+};
+
+// * --- FUNCTIONS AND RETURN VALUE
+
+// We can tell ts yo this function returns a number
+const addFunc = (a: number, b: number): number => {
+  return a + b;
+};
+
+console.log(addFunc(2, 3));
+
+//  If we have a funiction that doesnt retuern anything
+// what we want to do is give it a return type of void
+
+const randomFunction = (joke: string): void => {
+  console.log(joke, ':) HIHIHIHIHI');
+};
+randomFunction('insert joke');
+
+// This way we never accidently use this function because of the never keyword
+const errorMessage = (message: string): never => {
+  console.log(message);
+  throw new Error(message);
+};
+
+// * --- FUNCTIONS AS TYPES
+// Lets say we have a helper function that has a callback we can assign
+//  a type to the callback parameter by sating parameter name: () => void
+// We are not creating a new function we are just assigning a type
+// the function  can have parameters too so
+// parameter name (a: number, b: number) => void
+const solveProblem = (callback: (m: string) => void) => {
+  callback('get me a job pls');
+};
+
+solveProblem(randomFunction);
+
+// We can do this when creating a type (useful in react when passing state to another component )
+type SomeUsers = {
+  name: string;
+  role: Roles;
+  greet: (name: string) => string;
+};
+
+let someUser: SomeUsers = {
+  name: 'Xanity',
+  role: 'admin',
+  greet(name) {
+    return `Hi my name is ${name}`;
+  },
+};
+someUser.greet(someUser.name);
+
+// * --- SPECIAL TYPES
+
+let nothing: null;
+nothing = null;
+let moreNothing: undefined;
+moreNothing = undefined;
+
+// * ! and ?
+// If we are selecting a html element ts the getElement or querySelector function will return a html element or null
+// so we will get an error we can say
+const input = document.getElementById('input') as HTMLInputElement | null;
+
+console.log(input!.value);
+// input is possibly null unless we put a ? on it to optional chain and check if it exists
+// or ! when we can tell typescript 'trust me bro its there'
+// we can also make an if check and ts will be smart and remove the first error because now value might not exist
+// using as we tell ts its going to return a html input element
