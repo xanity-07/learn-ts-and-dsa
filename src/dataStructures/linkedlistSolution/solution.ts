@@ -65,6 +65,17 @@ export class LinkedList {
     }
     return false;
   }
+
+  total() {
+    if (this.length === 0) return 0;
+    let sum: number = 0;
+    let temp = this.head;
+    while (temp !== null) {
+      sum += temp.value;
+      temp = temp.next;
+    }
+    return sum;
+  }
 }
 
 /**

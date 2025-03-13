@@ -8,7 +8,7 @@ myLinkedList.push(2);
 myLinkedList.push(4);
 myLinkedList.push(6);
 myLinkedList.push(8);
-console.log(myLinkedList);
+// console.log(myLinkedList);
 
 // Pop
 // console.log(myLinkedList.pop()); // 8
@@ -24,3 +24,6 @@ console.log(myLinkedList);
 // console.log(myLinkedList.search(8)); // true
 // console.log(myLinkedList.search(12)); // fasle
 // console.log(myLinkedList.search(7)); // false
+
+// SUM ALL NODES
+console.log(myLinkedList.total());

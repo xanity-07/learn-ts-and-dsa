@@ -87,3 +87,11 @@ while temp is not equal to null and temp.next is not null
 if temp.value equals value return true
 temp equals temp.next;
 out side of the loop just return false because the value is not there
+
+### CHALLENGE
+
+# Create a method that rums all the nodes on the linked list
+
+Name the method what ever you want totla sumALl anything
+// Hint similar to search
+return the total at the end
