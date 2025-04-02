@@ -3,11 +3,12 @@
 
 const data = [2, 3, 5, 9, 14, 16, 18];
 
-const findCeil = (nums: number[], target: number): number | undefined => {
+const findCeilingNum = (nums: number[], target: number): number | undefined => {
   if (nums.length === 0) return undefined;
 
   let lo = 0;
   let hi = nums.length - 1;
+
   while (lo <= hi) {
     const middle = Math.trunc(lo + (hi - lo) / 2);
     if (target === nums[middle]) return nums[middle];
@@ -21,4 +22,4 @@ const findCeil = (nums: number[], target: number): number | undefined => {
   return nums[lo];
 };
 
-console.log(findCeil(data, 1));
+console.log(findCeilingNum(data, 1));
