@@ -11,7 +11,7 @@ const findCeilingNum = (nums: number[], target: number): number | undefined => {
 
   while (lo <= hi) {
     const middle = Math.trunc(lo + (hi - lo) / 2);
-    if (target === nums[middle]) return nums[middle];
+    if (target === nums[middle]) return middle;
 
     if (target > nums[middle]) {
       lo = middle + 1;
@@ -19,7 +19,7 @@ const findCeilingNum = (nums: number[], target: number): number | undefined => {
       hi = middle - 1;
     }
   }
-  return nums[lo];
+  return lo;
 };
 
-console.log(findCeilingNum(data, 1));
+console.log(findCeilingNum(data, -20));
