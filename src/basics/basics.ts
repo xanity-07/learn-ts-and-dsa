@@ -1,9 +1,9 @@
-// // *  --- This is type anotation
-// // when we manually asign a data type to a variable
+// *  --- This is type anotation
+// when we manually asign a data type to a variable
 // let username: string;
-// // here we declared username to type string and did not asign it a value
+// here we declared username to type string and did not asign it a value
 // username = 'xanity';
-// // here we asigned a string to username and if we tried to asign another value that is not a string this would yield an error
+// here we asigned a string to username and if we tried to asign another value that is not a string this would yield an error
 
 // // * --- Type inferance
 // // typescriipt will infer the type of a variable when we asign a value to it

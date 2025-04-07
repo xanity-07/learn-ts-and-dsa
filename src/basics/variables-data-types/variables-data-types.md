@@ -78,11 +78,6 @@
      * result = a / b; // 2
      * result = a % b; // 0
 
-    # TODOS
-    [] Create 5 variables of type string
-    [] Create a string using single quotes and usign this \
-    [] Create a string using double quotes
-    [] Create 5 variables of type number and do the same operations we just did dont look at the code try to recall how we did it
 ```
 
 ```Booleans
@@ -105,3 +100,14 @@
 
       * Triple = will check for value and data type so the previous check will be false
 ```
+
+# TODOS
+
+Try To not look at the code try to recall what we just went over THIS IS IMPORTANT
+
+[] Create 5 variables of type string
+[] Create a string using single quotes and usign this \
+[] Create a string using double quotes
+[] Create 5 variables of type number and do the all operations we just did
+[] Create a number variable and compare it to another number with all comparison operators
+[] Guess the output before running the code on the console
