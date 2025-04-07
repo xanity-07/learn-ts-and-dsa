@@ -20,4 +20,4 @@ const floorOfANumber = (nums: number[], target: number): number | undefined => {
   return hi;
 };
 
-console.log(floorOfANumber(data, 120));
+console.log(floorOfANumber(data, 24));
