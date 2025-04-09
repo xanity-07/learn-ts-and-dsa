@@ -12,6 +12,10 @@
     When i say constant this is me declaring a variable with const keyword
     The name of the varible is not a container to hold the value its kinda true what it really is it's a reference in memory that points to the value you assined it. PLEASE THINK ABOUT VARIABLES AND CONSTANTS LIKE THIS draw this mental model in your brain that when you declare something its a reference in memory this will yield exponential growth as a programmer later on.
 
+    Declaring a variable with a let keyword allows you to change the pointer thats refrencing that value so we can make it point something else.
+
+    With a const you can never change the that pointer that contstant will always point to the value that was assigned.
+
     The way we declare a variable is by using this keyword called let
     we can say let myFavNumber;
 
