@@ -9,7 +9,6 @@ function maximumWealth(accounts: number[][]): number {
       maxWealth = totalBalance;
     }
   }
-
   return maxWealth;
 }
 

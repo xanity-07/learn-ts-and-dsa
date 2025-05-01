@@ -4,16 +4,15 @@ const binarySearch = (
   target: number,
   lo: number,
   hi: number
-) => {
+): number => {
   while (lo <= hi) {
-    const middle = Math.floor(lo + (hi - lo) / 2);
-
-    if (target > nums[middle]) {
-      lo = middle + 1;
-    } else if (target < nums[middle]) {
-      hi = middle - 1;
+    const m = Math.floor(lo + (hi - lo) / 2);
+    if (target > nums[m]) {
+      lo = m + 1;
+    } else if (target < nums[m]) {
+      hi = m - 1;
     } else {
-      return middle;
+      return m;
     }
   }
   return -1;
@@ -22,14 +21,11 @@ const binarySearch = (
 const searchInfiniteRange = (nums: number[], target: number) => {
   let lo = 0;
   let hi = 1;
-
   while (target > nums[hi]) {
-    let newLo = hi + 1;
+    let newStart: number = hi + 1;
     hi = hi + (hi - lo + 1) * 2;
-    lo = newLo;
+    lo = newStart;
   }
-
   return binarySearch(nums, target, lo, hi);
 };
-
-console.log(searchInfiniteRange(data, 10));
+console.log(searchInfiniteRange(data, 170));
