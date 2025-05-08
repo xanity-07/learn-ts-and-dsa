@@ -6,25 +6,27 @@ const binarySearch = (
   hi: number
 ): number => {
   while (lo <= hi) {
-    const m = Math.floor(lo + (hi - lo) / 2);
-    if (target > nums[m]) {
-      lo = m + 1;
-    } else if (target < nums[m]) {
-      hi = m - 1;
+    const middle: number = Math.floor(lo + (hi - lo) / 2);
+    const middleValue: number = nums[middle];
+    if (target === middleValue) {
+      return middle;
+    }
+    if (target > middleValue) {
+      lo = middle + 1;
     } else {
-      return m;
+      hi = middle - 1;
     }
   }
   return -1;
 };
 
-const searchInfiniteRange = (nums: number[], target: number) => {
-  let lo = 0;
-  let hi = 1;
-  while (target > nums[hi]) {
-    let newStart: number = hi + 1;
+const searchInfiniteRange = (nums: number[], target: number): number => {
+  let lo: number = 0;
+  let hi: number = 1;
+  while (target >= nums[hi]) {
+    let newLo: number = hi;
     hi = hi + (hi - lo + 1) * 2;
-    lo = newStart;
+    lo = newLo;
   }
   return binarySearch(nums, target, lo, hi);
 };

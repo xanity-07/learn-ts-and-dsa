@@ -35,5 +35,4 @@ const search = (
   }
   return ans;
 };
-
 console.log(searchRange(input, 7));

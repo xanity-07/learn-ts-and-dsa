@@ -1,34 +1,32 @@
-const findRange = (nums: number[], target: number): number[] => {
-  const result: number[] = [];
-  const first = search(nums, target, true);
-  const last = search(nums, target, false);
-  result[0] = first;
-  result[1] = last;
+function findFistAndLastOccurance(nums: number[], target: number): number[] {
+  return [binarySearch(nums, target, true), binarySearch(nums, target, false)];
+}
 
-  return result;
-};
-
-const search = (nums: number[], target: number, firstIdx: boolean): number => {
+function binarySearch(
+  nums: number[],
+  target: number,
+  isFirstOccurance: boolean
+): number {
+  let lo: number = 0;
+  let hi: number = nums.length - 1;
   let result: number = -1;
-  let s: number = 0;
-  let e: number = nums.length - 1;
-
-  while (s <= e) {
-    const m = Math.floor(s + (e - s) / 2);
-    if (target > nums[m]) {
-      s = m + 1;
-    } else if (target < nums[m]) {
-      e = m - 1;
+  while (lo <= hi) {
+    const middle: number = Math.floor(lo + (hi - lo) / 2);
+    const middleValue: number = nums[middle];
+    if (target > middleValue) {
+      lo = middle + 1;
+    } else if (target < middleValue) {
+      hi = middle - 1;
     } else {
-      result = m;
-      if (firstIdx) {
-        e = m - 1;
+      result = middle;
+      if (isFirstOccurance) {
+        hi = middle - 1;
       } else {
-        s = m + 1;
+        lo = middle + 1;
       }
     }
   }
   return result;
-};
+}
 
-console.log(findRange([2, 3, 4, 7, 7, 7, 8, 9], 9));
+console.log(findFistAndLastOccurance([1, 3, 4, 5, 5, 7, 7, 7, 9, 11], 1));

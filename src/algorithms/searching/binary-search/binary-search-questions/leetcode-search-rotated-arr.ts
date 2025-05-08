@@ -1,45 +1,45 @@
-const search = (nums: number[], target: number): number => {
+function searchRotatedArr(nums: number[], target: number) {
   const pivot: number = findPivot(nums);
-  let lo: number = 0;
-  let hi: number = pivot;
-  let isAccending: boolean = nums[pivot] < nums[pivot + 1];
+  const firstSearch: number = binarySearch(nums, target, 0, pivot);
+  if (firstSearch !== -1) {
+    return firstSearch;
+  }
+  return binarySearch(nums, target, pivot + 1, nums.length - 1);
+}
 
+function binarySearch(nums: number[], target: number, lo: number, hi: number) {
   while (lo <= hi) {
     const middle: number = Math.floor(lo + (hi - lo) / 2);
     if (target === nums[middle]) {
       return middle;
     }
-    if (isAccending) {
-      if (target > nums[middle]) {
-        lo = middle + 1;
-      } else {
-        hi = middle - 1;
-      }
+    if (target > nums[middle]) {
+      lo = middle + 1;
     } else {
-      if (target > nums[middle]) {
-        hi = middle - 1;
-      } else {
-        lo = middle + 1;
-      }
+      hi = middle - 1;
     }
   }
   return -1;
-};
+}
 
-const findPivot = (nums: number[]): number => {
+function findPivot(nums: number[]): number {
   let lo: number = 0;
   let hi: number = nums.length - 1;
   while (lo < hi) {
     const middle: number = Math.floor(lo + (hi - lo) / 2);
     if (nums[middle] > nums[middle + 1]) {
+      return middle;
+    } else {
       hi = middle;
+    }
+    if (nums[middle] < nums[middle - 1]) {
+      return middle - 1;
     } else {
       lo = middle + 1;
     }
   }
-
-  return lo;
-};
-
-let target = 7;
-console.log(search([3, 4, 5, 6, 7, 0, 1, 2], target));
+  return -1;
+}
+console.log(searchRotatedArr([7, 10, 12, 1, 2, 5, 6], 2)); // 4
+console.log(searchRotatedArr([6, 7, 8, 9, 5, 4, 3, 2, 1, 0], 2)); // 7
+console.log(searchRotatedArr([10, 12, 1, 2, 5, 6, 7], 2)); // 3
