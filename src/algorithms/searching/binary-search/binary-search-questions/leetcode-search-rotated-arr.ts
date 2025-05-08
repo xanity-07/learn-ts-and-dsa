@@ -10,14 +10,9 @@ function searchRotatedArr(nums: number[], target: number) {
 function binarySearch(nums: number[], target: number, lo: number, hi: number) {
   while (lo <= hi) {
     const middle: number = Math.floor(lo + (hi - lo) / 2);
-    if (target === nums[middle]) {
-      return middle;
-    }
-    if (target > nums[middle]) {
-      lo = middle + 1;
-    } else {
-      hi = middle - 1;
-    }
+    if (nums[middle] === target) return middle;
+    if (target > nums[middle]) lo = middle + 1;
+    else hi = middle - 1;
   }
   return -1;
 }
@@ -29,12 +24,15 @@ function findPivot(nums: number[]): number {
     const middle: number = Math.floor(lo + (hi - lo) / 2);
     if (nums[middle] > nums[middle + 1]) {
       return middle;
-    } else {
-      hi = middle;
     }
     if (nums[middle] < nums[middle - 1]) {
-      return middle - 1;
-    } else {
+      return middle;
+    }
+
+    if (nums[lo] >= nums[middle]) {
+      hi = middle;
+    }
+    if (nums[lo] < nums[middle]) {
       lo = middle + 1;
     }
   }
