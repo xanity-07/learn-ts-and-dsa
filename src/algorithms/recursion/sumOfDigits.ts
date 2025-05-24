@@ -6,6 +6,3 @@ const sumOfDigits = (n: number): number => {
 };
 
 console.log(sumOfDigits(1234));
-
-console.log(1234 % 10);
-console.log(Math.floor(1234 / 10));

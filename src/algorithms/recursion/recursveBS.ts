@@ -4,11 +4,18 @@ const recursiveBinarySearch = (
   s: number,
   e: number
 ): number => {
-  const m = Math.floor(s + (e - s) / 2);
-  if (s > e) return -1;
-  if (target === nums[m]) return m;
-  if (target > nums[m]) return recursiveBinarySearch(nums, target, m + 1, e);
-  return recursiveBinarySearch(nums, target, s, m - 1);
+  while (s <= e) {
+    const middle: number = Math.floor(s + (e - s) / 2);
+    if (target === nums[middle]) return middle;
+    if (target > nums[middle]) {
+      s = middle + 1;
+      recursiveBinarySearch(nums, target, s, e);
+    } else {
+      e = middle - 1;
+      recursiveBinarySearch(nums, target, s, e);
+    }
+  }
+  return -1;
 };
 
 console.log(
