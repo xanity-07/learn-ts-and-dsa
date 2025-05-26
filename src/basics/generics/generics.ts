@@ -1,3 +1,4 @@
+// Not using Generics
 const printString = (item: string, defaultValue: string): [string, string] => [
   item,
   defaultValue,
@@ -16,7 +17,9 @@ console.log(printNumber(3, 5));
 console.log(printBoolean(true, false));
 
 console.log('-----------------');
+
 // Using Generics
+// Allows uo to use one function for all 3 data types
 const print = <T>(value: T, defaultValue: T): [T, T] => {
   return [value, defaultValue];
 };
