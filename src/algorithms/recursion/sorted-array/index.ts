@@ -1,5 +1,5 @@
 //* Iterative Solution
-function isSortedArr(sorted: number[], idx: number = 0) {
+function isSortedArr(sorted: number[], idx: number = 0): boolean {
   for (idx; idx < sorted.length; idx++) {
     if (sorted[idx] > sorted[idx + 1]) {
       return false;
